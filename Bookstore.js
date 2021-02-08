@@ -1,4 +1,4 @@
-class Bookstore {
+export default class Bookstore {
   constructor(
     title,
     author,
