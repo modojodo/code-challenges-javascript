@@ -14,16 +14,17 @@ function timeConversion(s) {
         console.log('here')
         return  `${totalHours - 12 + hour }${s.slice(2, s.length -2)}`
       }
-      break;
     case 'AM':
       if( hour === 12) {
         return  `00${s.slice(2, s.length -2)}`;
       } else {
-        return  `${hour}:${s.slice(2, s.length -2)}`
+        splittedStr[0] = hour;
+        splittedStr[2] = splittedStr[2].slice(0, splittedStr[2].length -2)
+        return `0${splittedStr.join(':')}`;
       }
   }
 }
 
 
-console.log(timeConversion('04:59:59AM'))
+console.log(timeConversion('12:59:59AM'))
 // 04:59:59AM
