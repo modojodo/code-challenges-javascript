@@ -41,14 +41,17 @@ function firstDuplicate(a) {
   let smallestSecondIndexNum = null;
   for(let i = 0; i < a.length - 1; i++) {
     const currentNum = a[i];
+    if(isDuplicate.includes(currentNum)) {
+      continue;
+    }
     const indexOfNext = a.indexOf(currentNum, i + 1);
 
     // If the smallest second index is already less than the index we're iterating over then break loop
-    if( smallestSecondIndex && (i > smallestSecondIndex)) {
+    if(smallestSecondIndex && (i > smallestSecondIndex)) {
       break;
     }
 
-    if(indexOfNext > 0 && !isDuplicate.includes(currentNum)) {
+    if(indexOfNext > 0) {
       isDuplicate.push(currentNum);
       if(smallestSecondIndex) {
         if(indexOfNext <  smallestSecondIndex) {
@@ -63,3 +66,4 @@ function firstDuplicate(a) {
   }
   return smallestSecondIndexNum || -1;
 }
+
